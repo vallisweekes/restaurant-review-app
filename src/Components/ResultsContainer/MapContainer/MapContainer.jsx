@@ -4,8 +4,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 class MapContainer extends Component {
 	constructor(props) {
 		super(props);
-		console.log(props.lat);
-		console.log(props.lon);
+		console.log(this.props);
 	}
 
 	render() {
@@ -13,6 +12,7 @@ class MapContainer extends Component {
 			<Map
 				google={this.props.google}
 				zoom={15}
+				style={{ width: '45%', position: 'fixed' }}
 				initialCenter={{ lat: this.props.lat, lng: this.props.lon }}
 			>
 				<Marker position={{ lat: this.props.lat, lng: this.props.lon }} />
