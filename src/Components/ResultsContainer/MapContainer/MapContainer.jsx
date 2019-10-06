@@ -5,13 +5,16 @@ import { withScriptjs, withGoogleMap } from "react-google-maps";
 class MapContainer extends Component {
   render() {
     const WrappedMap = withScriptjs(withGoogleMap(Map));
+
     return (
-      <WrappedMap
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places=${process.env.REACT_APP_GOOGLE_KEY}`}
-        loadingElement={<div className="app__map" />}
-        containerElement={<div className="app__map-container" />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
+      <div className="app__map-item">
+        <WrappedMap
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places=AIzaSyA401fisZr7FZPa63yodwJ6P33aoUu19gs`}
+          loadingElement={<div style={{ height: "100%" }} />}
+          containerElement={<div style={{ height: "100%" }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+      </div>
     );
   }
 }

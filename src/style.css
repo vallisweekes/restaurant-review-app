@@ -78,14 +78,15 @@ section {
 }
 
 .app__map {
-    width: 45% !important;
-    /* position: relative;
+    position: relative;
+    width: 45%;
     display: block;
     right: 0;
-    bottom: 0; */
+    bottom: 0;
 }
 
 .app__map-container {
+    width: 100%;
     position: absolute;
     top: 0;
     right: 0;
@@ -94,9 +95,10 @@ section {
     z-index: 888;
 }
 
-.Map_map {
-    /* position: fixed;
-  top: 20; */
+.app__map-item {
+    width: 43%;
+    height: 100%;
+    position: fixed;
 }
 
 .app__results-column {
