@@ -1,26 +1,20 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
-
-
-
 *,
 :after,
 :before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  position: relative;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 a,
@@ -33,141 +27,131 @@ div,
 section,
 header,
 main {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 div,
 section {
-  display: block;
+    display: block;
 }
 
 .app__container {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
 }
 
 .app__container-header {
-  min-height: 150px;
-  max-height: 150px;
-  display: block;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
+    min-height: 150px;
+    max-height: 150px;
+    display: block;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 .app__container-results {
-  flex: 1 1 auto;
-  padding-top: 155px;
-  position: relative;
+    flex: 1 1 auto;
+    padding-top: 130px;
+    position: relative;
 }
 
 .app__filterBar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  height: 60px;
-  background: #fff;
-  border-bottom: 1px solid #cfcfd0;
-  box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px solid #cfcfd0;
+    box-sizing: border-box;
 }
 
 .app__results-viewport {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding-top: 70px;
-
-
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 70px;
 }
 
 .app__map {
-  width: 45% !important;
-  position: relative;
-  display: block;
-  right: 0;
-  bottom: 0;
-
+    width: 45% !important;
+    /* position: relative;
+    display: block;
+    right: 0;
+    bottom: 0; */
 }
 
 .app__map-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 888;
-
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 888;
 }
 
-/* 
 .Map_map {
-  position: fixed;
-  top: 20;
-} */
+    /* position: fixed;
+  top: 20; */
+}
 
 .app__results-column {
-  width: 55%;
+    width: 55%;
 }
 
 .filterBar__wrapper {
-  padding: 0 24px;
-  border-bottom: 1px solid #ffffff;
-  position: relative;
-
-
+    padding: 0 24px;
+    border-bottom: 1px solid #ffffff;
+    position: relative;
 }
 
-
 .btn__style {
-  display: inline-block;
-
-  color: #0067DB;
+    display: inline-block;
+    color: #0067DB;
 }
 
 .btn__style-round {
-  display: inline-block;
-  padding: 5px 10px;
-
-  border-radius: 25px;
-  border: 1px solid rgb(119, 119, 119);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 25px;
+    border: 1px solid rgb(119, 119, 119);
 }
 
 .btn__style-round:hover {
-  border: 1.5px solid #0359bb;
+    border: 1.5px solid #0359bb;
 }
 
-
 .site__header {
-
-  background-color: #e1e1e0;
-  border-bottom: 1px solid #c6c6c6
+    background-color: #e1e1e0;
+    border-bottom: 1px solid #c6c6c6
 }
 
 .search {
-  position: relative;
-  width: 100%;
-  border-radius: 30px;
-  border: 1px solid black;
-  padding: 0.9em;
-  margin-bottom: 20px;
-  ;
+    position: relative;
+    width: 100%;
+    border-radius: 30px;
+    border: 1px solid black;
+    padding: 0.9em;
+    margin-bottom: 20px;
+    ;
 }
 
 .search input {
-  text-indent: 30px;
+    text-indent: 30px;
 }
 
-.search .fa-search {
+
+/* .search .fa-search {
   position: absolute;
   top: 24px;
   left: 7px;
   font-size: 15px;
-}
+} */
+
 
 /* 
 
@@ -179,12 +163,11 @@ section {
 } */
 
 .restauraunt__container {
-  margin-top: 10px;
-
-  height: 800px;
-  border: 1px solid black;
+    margin-top: 10px;
+    height: 800px;
+    border: 1px solid black;
 }
 
 .mt-6 {
-  margin-top: 10px;
+    margin-top: 10px;
 }
