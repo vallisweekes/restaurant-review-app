@@ -9,7 +9,7 @@ class MapContainer extends Component {
     return (
       <div className="app__map-item">
         <WrappedMap
-          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places=AIzaSyA401fisZr7FZPa63yodwJ6P33aoUu19gs`}
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyA8Byy23oFligL0X1_WQYca0ABneIhxOow`}
           loadingElement={<div style={{ height: "100%" }} />}
           containerElement={<div style={{ height: "100%" }} />}
           mapElement={<div style={{ height: `100%` }} />}
