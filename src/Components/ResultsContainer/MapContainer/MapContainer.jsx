@@ -7,21 +7,37 @@ class MapContainer extends Component {
 		super(props);
 		this.state = {
 			lat: null,
-			lng: null
+			lng: null,
+			onMarkerClick: function(props, marker) {
+				console.log(props);
+				return {
+					selectedPlace: props,
+					activeMarker: marker,
+					showingInfoWindow: true
+				};
+			}
 		};
 	}
 	UNSAFE_componentWillMount() {
 		this.setState({
 			lat: this.props.lat,
-			lng: this.props.lng
+			lng: this.props.lng,
+			onClose: function(props) {
+				if (this.state.showingInfoWindow) {
+					return {
+						showingInfoWindow: false,
+						activeMarker: null
+					};
+				}
+			}
 		});
 	}
 	render() {
 		return (
 			<Map
 				google={this.props.google}
-				zoom={15}
-				style={{ width: '100%', height: '100%', position: 'relative' }}
+				zoom={14}
+				style={{ width: '100%', height: '100%', position: 'absolute' }}
 				initialCenter={{
 					lat: this.state.lat,
 					lng: this.state.lng
@@ -30,13 +46,23 @@ class MapContainer extends Component {
 				{RestList.results.map(rest => (
 					<Marker
 						key={rest.id}
-						name={rest.name}
 						position={{
 							lat: rest.geometry.location.lat,
 							lng: rest.geometry.location.lng
 						}}
+						name={rest.name}
+						onClick={this.state.onMarkerClick}
 					/>
 				))}
+				<InfoWindow
+					marker={this.state.activeMarker}
+					visible={this.state.showingInfoWindow}
+					onClose={this.state.onClose}
+				>
+					<div>
+						<h4>{this.state.onMarkerClick.selectedPlace}</h4>
+					</div>
+				</InfoWindow>
 			</Map>
 		);
 	}
