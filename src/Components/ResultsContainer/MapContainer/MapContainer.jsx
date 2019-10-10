@@ -8,7 +8,7 @@ class MapContainer extends Component {
     this.state = {
       lat: this.props.lat,
       lng: this.props.lng,
-      onMarkerClick: function(props, marker) {
+      onMarkerOver: function(props, marker) {
         console.log(props);
         return {
           selectedPlace: props,
@@ -44,7 +44,7 @@ class MapContainer extends Component {
         }}
       >
         <Marker
-          onClick={this.state.onMarkerClick}
+          onMouseover={this.state.onMarkerOver}
           name={"You are Here"}
           position={{
             lat: this.props.lat,
@@ -57,7 +57,7 @@ class MapContainer extends Component {
           onClose={this.state.onClose}
         >
           <div>
-            <h4>{this.props.name}</h4>
+            <h4>{this.state.name}</h4>
           </div>
         </InfoWindow>
         {RestList.results.map(rest => (
@@ -68,7 +68,7 @@ class MapContainer extends Component {
               lng: rest.geometry.location.lng
             }}
             name={rest.name}
-            onClick={this.state.onMarkerClick}
+            onClick={this.state.onMarkerOver}
           />
         ))}
         <InfoWindow
@@ -77,7 +77,7 @@ class MapContainer extends Component {
           onClose={this.state.onClose}
         >
           <div>
-            <h4>{this.state.onMarkerClick.selectedPlace}</h4>
+            <h4>{this.state.onMarkerOver.selectedPlace}</h4>
           </div>
         </InfoWindow>
       </Map>
