@@ -5,7 +5,7 @@ import RestList from "../../../restList.json";
 class MapContainer extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+
     this.state = {
       lat: this.props.lat,
       lng: this.props.lng,
@@ -33,7 +33,19 @@ class MapContainer extends Component {
       }
     });
   }
+
   render() {
+    const markerRenders = RestList.results.map(rest => (
+      <Marker
+        key={rest.id}
+        position={{
+          lat: rest.geometry.location.lat,
+          lng: rest.geometry.location.lng
+        }}
+        name={rest.name}
+        onClick={this.state.onMarkerOver}
+      />
+    ));
     return (
       <Map
         google={this.props.google}
@@ -61,17 +73,7 @@ class MapContainer extends Component {
             <h4>{this.props.name}</h4>
           </div>
         </InfoWindow>
-        {RestList.results.map(rest => (
-          <Marker
-            key={rest.id}
-            position={{
-              lat: rest.geometry.location.lat,
-              lng: rest.geometry.location.lng
-            }}
-            name={rest.name}
-            onClick={this.state.onMarkerOver}
-          />
-        ))}
+        {markerRenders}
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
