@@ -5,6 +5,7 @@ import RestList from "../../../restList.json";
 class MapContainer extends Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       lat: this.props.lat,
       lng: this.props.lng,
@@ -57,7 +58,7 @@ class MapContainer extends Component {
           onClose={this.state.onClose}
         >
           <div>
-            <h4>{this.state.name}</h4>
+            <h4>{this.props.name}</h4>
           </div>
         </InfoWindow>
         {RestList.results.map(rest => (
@@ -77,7 +78,7 @@ class MapContainer extends Component {
           onClose={this.state.onClose}
         >
           <div>
-            <h4>{this.state.onMarkerOver.selectedPlace}</h4>
+            <h4>{this.props.name}</h4>
           </div>
         </InfoWindow>
       </Map>
