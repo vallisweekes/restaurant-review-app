@@ -1,21 +1,28 @@
 import React, { Component } from "react";
-
-// import { Provider } from 'react-redux';
-// import { createStore, applyMiddleware } from 'redux';
-// import { BrowserRouter as Router, Route, Switch } from 'react-router';
+import Header from "./Components/Header/Header";
+import ResultsContainer from "./Components/ResultsContainer/ResultsContainer";
 
 class AppContainer extends Component {
-  // constructor(props) {
-  // 	super(props);
-  // 	console.log(props);
-  // }
+  state = { lat: null, lng: null };
+  componentDidMount() {
+    window.navigator.geolocation.getCurrentPosition(
+      position =>
+        this.setState({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        }),
+      err => this.setState({ errorMessage: err.message })
+    );
+  }
   render() {
     return (
       <div className="container-fluid app__containter">
         <header className="app__container-header">
-          {this.props.children[0]}
+          <Header />
         </header>
-        <main className="app__container-results">{this.props.children[1]}</main>
+        <main className="app__container-results">
+          <ResultsContainer lat={this.state.lat} lng={this.state.lng} />
+        </main>
       </div>
     );
   }

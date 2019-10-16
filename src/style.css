@@ -1,5 +1,4 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
-
 *,
 :after,
 :before {
@@ -85,7 +84,6 @@ section {
     right: 0;
     bottom: 0;
     padding-top: 110px;
-
 }
 
 .app__map-container {
@@ -97,18 +95,10 @@ section {
     bottom: 0;
     left: 0;
     z-index: 888;
-
 }
-
-/* .app__map-item {
-    width: 43%;
-    height: 100%;
-    position: fixed;
-} */
 
 .app__results-column {
     width: 55%;
-
 }
 
 .filterBar__wrapper {
@@ -170,12 +160,47 @@ section {
   border: 1px solid black;
 } */
 
-.restauraunt__container {
+.mt-6 {
+    margin-top: 10px;
+}
+
+.rest__container {
     margin-top: 10px;
     height: 900px;
     border: 1px solid black;
 }
 
-.mt-6 {
+.rest__container {
     margin-top: 10px;
+    height: 900px;
+    border: 1px solid black;
+}
+
+.rest__container-inner {
+    padding: 10px;
+    width: 100%;
+}
+
+.rest__card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 225px;
+    border: 1px solid red;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.rest__card-img {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #0067DB;
+    box-sizing: border-box;
+}
+
+.rest__card-info {
+    width: 390px;
+    height: 200px;
+    border: 1px solid rebeccapurple;
+    box-sizing: border-box;
 }

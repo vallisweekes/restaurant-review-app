@@ -1,22 +1,14 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import Restauraunt from "./Restauraunt";
 
-class RestaurauntsList extends Component {
-  // constructor() {
-  // 	super();
-  // }
-
-  render() {
-    return (
-      <Fragment>
-        <section>
-          <div className="restauraunt__container">
-            <Restauraunt />
-          </div>{" "}
-        </section>{" "}
-      </Fragment>
-    );
-  }
-}
+const RestaurauntsList = ({ data: results }) => {
+  return (
+    <Fragment>
+      <section className="rest__container">
+        <Restauraunt data={results} />{" "}
+      </section>{" "}
+    </Fragment>
+  );
+};
 
 export default RestaurauntsList;
