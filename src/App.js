@@ -4,18 +4,14 @@ import Header from "./Components/Header/Header";
 import ResultsContainer from "./Components/ResultsContainer/ResultsContainer";
 
 const App = () => {
-    return ( <
-        Fragment >
-        <
-        AppContainer >
-        <
-        Header / >
-        <
-        ResultsContainer / >
-        <
-        /AppContainer>{" "} <
-        /Fragment>
-    );
+  return (
+    <Fragment>
+      <AppContainer>
+        <Header />
+        <ResultsContainer />
+      </AppContainer>{" "}
+    </Fragment>
+  );
 };
 
 export default App;

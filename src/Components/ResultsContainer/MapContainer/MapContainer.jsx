@@ -43,7 +43,6 @@ class MapContainer extends Component {
         {this.props.data.results.map(rest => (
           <Marker
             key={rest.id}
-            s
             position={{
               lat: rest.geometry.location.lat,
               lng: rest.geometry.location.lng

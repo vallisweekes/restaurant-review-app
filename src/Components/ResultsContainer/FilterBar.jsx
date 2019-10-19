@@ -1,27 +1,19 @@
-import React, { Component } from 'react';
+import React from "react";
 
-import Button from './RestaurantContainer/Button';
-import MoreFilter from './RestaurantContainer/MoreFilter';
+import OpenNow from "./OpenNow";
+import RatingsFilter from "./RatingsFilter";
 
-class FilterBar extends Component {
-	state = {
-		buttons: [
-			{ id: 1, name: 'Open Now' },
-			{ id: 2, name: 'Cuisine' },
-			{ id: 3, name: 'Rating' }
-		]
-	};
-	render() {
-		return (
-			<section className='filterBar__wrapper'>
-				{this.state.buttons.map(button => (
-					<Button key={button.id}>{button.name}</Button>
-				))}
-
-				<MoreFilter />
-			</section>
-		);
-	}
-}
+const FilterBar = () => {
+  return (
+    <section className="filterBar__wrapper">
+      <div className="flex__">
+        <OpenNow label="Open Now" />
+      </div>
+      <div className="flex__ ml-4">
+        <RatingsFilter label="Ratings" />
+      </div>
+    </section>
+  );
+};
 
 export default FilterBar;
