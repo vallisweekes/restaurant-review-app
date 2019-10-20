@@ -1,28 +1,31 @@
-import React, { Component } from "react";
-
-class RatingsFilterItems extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
-  onDropDown = () => {};
-  render() {
-    const starRatingNum = [1, 2, 3, 4, 5];
-    return (
-      <ul>
-        {starRatingNum.map(ratingNum => (
-          <li key={ratingNum}>
+import React from "react";
+import { Star } from "@material-ui/icons";
+const RatingsFilterItems = props => {
+  const ratingNumber = [5, 4, 3, 2, 1];
+  console.log("Pops in filteredItem", props);
+  return (
+    <ul>
+      {props.ratings &&
+        ratingNumber.map((ratingNum, i) => (
+          <li key={i} className="ratings__dropdonw-items p-2 ">
             <div>
-              <input type="checkbox" />
-              {ratingNum}
-            </div>
+              <input
+                key={i}
+                type="checkbox"
+                className="mr-2"
+                onChange={e => props.onStarSelect(e.target.value)}
+              />
+              {ratingNum}{" "}
+            </div>{" "}
+            <span className="ml-2">
+              {Array(ratingNum).fill(
+                <Star fontSize={"small"} color={"secondary"} />
+              )}
+            </span>
           </li>
         ))}
-      </ul>
-    );
-  }
-}
+    </ul>
+  );
+};
 
 export default RatingsFilterItems;

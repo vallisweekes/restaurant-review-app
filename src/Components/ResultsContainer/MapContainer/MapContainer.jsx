@@ -40,17 +40,18 @@ class MapContainer extends Component {
           lng: this.props.lng
         }}
       >
-        {this.props.data.results.map(rest => (
-          <Marker
-            key={rest.id}
-            position={{
-              lat: rest.geometry.location.lat,
-              lng: rest.geometry.location.lng
-            }}
-            name={rest.name}
-            onClick={this.state.onMarkerOver}
-          />
-        ))}
+        {this.props.restaraunts &&
+          this.props.restaraunts.map(rest => (
+            <Marker
+              key={rest.place_id}
+              position={{
+                lat: rest.geometry.location.lat,
+                lng: rest.geometry.location.lng
+              }}
+              name={rest.name}
+              onClick={this.state.onMarkerOver}
+            />
+          ))}
         <Marker
           onMouseover={this.state.onMarkerOver}
           name={"You are Here"}
