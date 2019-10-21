@@ -4,6 +4,7 @@ import Pagination from "./Pagination";
 import Sort from "./Sort";
 
 const RestaurauntsList = props => {
+  console.log("Paginated Restaraunt List", props);
   const {
     restarauntResults,
     restarauntTotal,
@@ -17,7 +18,7 @@ const RestaurauntsList = props => {
       <section className="rest__container">
         <header className="rest__container-header">
           <div className="rest__results-info">
-            Showing {restarauntTotal} of results
+            Showing {restarauntTotal} of {restarauntTotal} results
           </div>
           <Pagination
             itemsCount={restarauntTotal}

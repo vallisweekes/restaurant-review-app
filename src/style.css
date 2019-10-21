@@ -364,3 +364,45 @@ section {
     list-style: none;
     border-bottom: 1px solid rgba(216, 215, 215, 0.824);
 }
+
+.pagination__ {
+    display: flex;
+    list-style: none;
+}
+
+.pagination__ div {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+}
+
+.pagination__ div.active {
+    background-color: #0451cd;
+    ;
+    color: white;
+    border: 1px solid #cfddf3;
+}
+
+.pagination__ div:hover:not(.active) {
+    background-color: transparent;
+}
+
+.pagination__ div:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.pagination__ a:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.pagination__item-link {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid #cfddf3;
+}

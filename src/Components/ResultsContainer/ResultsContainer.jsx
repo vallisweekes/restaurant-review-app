@@ -10,23 +10,17 @@ class ResultsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ratings: [],
-      restaraunts: [],
-      pageSize: []
+      ratings: getRestRatings(),
+      restaraunts: getRestaraunts(),
+      currentPage: 1,
+      pageSize: 5
     };
 
     this.handleRatings = this.handleRatings.bind(this);
     this.handleOpenNowFilter = this.handleOpenNowFilter.bind(this);
     this.handlePageChange = this.handlePageChange.bind(this);
   }
-  componentDidMount() {
-    this.setState({
-      restaraunts: getRestaraunts(),
-      ratings: getRestRatings(),
-      currentPage: 1,
-      pageSize: 5
-    });
-  }
+
   handleRatings(ratings) {
     // console.log(starRatingNum);
   }
@@ -68,7 +62,7 @@ class ResultsContainer extends Component {
           <section className="app__results-column">
             <RestaurauntsList
               restarauntResults={restaraunts}
-              restarauntTotal={restaraunts.length}
+              restarauntTotal={allRestaruants.length}
               pageSize={pageSize}
               currentPage={currentPage}
               onPageChange={this.handlePageChange}
