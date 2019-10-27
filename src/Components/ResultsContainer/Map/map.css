@@ -1,0 +1,9 @@
+.app__map {
+    position: relative;
+    width: 45%;
+    display: block;
+    right: 0;
+    bottom: 0;
+    padding-top: 110px;
+}
+

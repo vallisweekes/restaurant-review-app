@@ -1,7 +1,7 @@
 import React from "react";
 // import { InputAdornment } from '@material-ui/core/InputAdornment';
 
-import "../../../src/style.css";
+// import "../../../../src/style.css";
 const LocationSearch = () => {
   return (
     <section className="">

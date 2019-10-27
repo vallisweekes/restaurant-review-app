@@ -1,0 +1,14 @@
+.sort__dropdown-menu {
+    position: relative;
+    width: 260px;
+    background-color: #ffffff;
+    box-shadow: 0 0 11px 0 rgba(0, 0, 0, .1);
+    border: 1px solid #cfddf3;
+}
+
+.sort__dropdonw-items {
+    position: absolute;
+    z-index: 999;
+    list-style: none;
+    border-bottom: 1px solid rgba(216, 215, 215, 0.824);
+}

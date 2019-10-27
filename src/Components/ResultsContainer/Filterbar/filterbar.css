@@ -1,0 +1,13 @@
+.app__filterBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    border-bottom: 1px solid #cfcfd0;
+    box-sizing: border-box;
+}
