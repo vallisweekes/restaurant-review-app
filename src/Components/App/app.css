@@ -1,20 +1,6 @@
-
 .app__container {
     position: relative;
     width: 100%;
-}
-
-
-
-
-
-
-.filterBar__wrapper {
-    display: flex;
-    align-items: center;
-    padding-left: 24px;
-    border-bottom: 1px solid #ffffff;
-    position: relative;
 }
 
 .btn__style {
@@ -32,26 +18,6 @@
 .btn__style-round:hover {
     border: 1.5px solid #0359bb;
 }
-
-.site__header {
-    background-color: #e1e1e0;
-    border-bottom: 1px solid #c6c6c6
-}
-
-.search {
-    position: relative;
-    width: 100%;
-    border-radius: 30px;
-    border: 1px solid black;
-    padding: 0.9em;
-    margin-bottom: 20px;
-    ;
-}
-
-.search input {
-    text-indent: 30px;
-}
-
 
 
 /* .search .fa-search {
@@ -109,7 +75,6 @@
     border-radius: 6px;
     box-sizing: border-box;
 }
-
 
 .text-bold {
     font-weight: bold;
@@ -220,9 +185,7 @@
     background-color: rgb(175, 172, 171);
 }
 
-
 .pagination__ {
     display: flex;
     list-style: none;
 }
-

@@ -1,5 +1,5 @@
-import Reslist from "../../restList.json";
+import myRestaurantlist from "../myRestaurantData/restList.json";
 
-export function getRestaraunts() {
-  return Reslist.results.map(res => res);
+export function getMyRestaraunts() {
+  return myRestaurantlist.results.map(res => res);
 }

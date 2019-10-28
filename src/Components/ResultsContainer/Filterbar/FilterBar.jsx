@@ -2,7 +2,7 @@ import React from "react";
 
 import OpenNow from "./OpenNow/OpenNow";
 import RatingsFilter from "./RatingsFilter/RatingsFilter";
-
+import "./filterbar.css";
 const FilterBar = props => {
   const { onStarSelect, ratings } = props;
   return (

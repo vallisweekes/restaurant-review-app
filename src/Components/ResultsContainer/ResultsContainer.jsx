@@ -21,18 +21,18 @@ const ResultsContainer = props => {
             <MapContainer
               lat={props.lat}
               lng={props.lng}
-              restaraunts={props.restaraunts}
-              storeRestaurants={props.storeRestaurants}
+              restaraunts={props.myRestaurants}
+              fetchPlaces={props.fetchPlaces}
             />
           </div>{" "}
         </section>{" "}
         <section className="app__results-column">
           <RestaurauntsList
-            restarauntResults={props.restaraunts}
-            // restarauntTotal={allRestaruants.length}
+            restarauntResults={props.myRestaurants}
+            // restarauntTotal={.length}
             pageSize={props.pageSize}
             currentPage={props.currentPage}
-            onPageChange={props.handlePageChange}
+            onPageChange={props.onPageChange}
           />
         </section>
       </main>

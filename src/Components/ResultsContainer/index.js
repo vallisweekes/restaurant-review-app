@@ -18,11 +18,7 @@ class ResultsContainer extends Component {
   handleRatings() {
     console.log(this.state.ratings);
   }
-  storeRestaurants = gPlacesRestaurants => {
-    this.setState({
-      googleRestaurants: gPlacesRestaurants
-    });
-  };
+
   handleOpenNowFilter() {}
 
   handlePageChange(page) {

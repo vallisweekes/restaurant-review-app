@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import "./map.css";
 
-import { Res } from "../../../restList.json";
-
 class MapContainer extends Component {
   constructor(props) {
     super(props);
@@ -26,22 +24,24 @@ class MapContainer extends Component {
           lat: this.props.lat,
           lng: this.props.lng
         }}
-        onReady={this.fetchPlaces}
+        onReady={this.props.fetchPlaces}
       >
-        <Marker
-          onClick={this.onIconClick}
-          name={"You are Here"}
-          position={{
-            lat: this.props.lat,
-            lng: this.props.lng
-          }}
-          clickable={true}
-          animation={this.props.google.maps.Animation.DROP}
-          icon={{
-            url: "../../../assests/placeholder.svg"
-            // This marker is 20 pixels wide by 32 pixels high.
-          }}
-        />
+        {this.props.loaded && (
+          <Marker
+            onClick={this.onIconClick}
+            name={"You are Here"}
+            position={{
+              lat: this.props.lat,
+              lng: this.props.lng
+            }}
+            clickable={true}
+            animation={this.props.google.maps.Animation.DROP}
+            icon={{
+              url: "../../../assests/placeholder.svg"
+              // This marker is 20 pixels wide by 32 pixels high.
+            }}
+          />
+        )}
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
