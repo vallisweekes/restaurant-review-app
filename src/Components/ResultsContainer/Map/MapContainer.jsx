@@ -7,9 +7,9 @@ class MapContainer extends Component {
     super(props);
 
     this.state = {
-      selectedPlace: {},
-      activeMarker: {},
-      showingInfoWindow: false
+      // selectedPlace: {}
+      // activeMarker: {},
+      // showingInfoWindow: false
     };
   }
 
@@ -25,30 +25,30 @@ class MapContainer extends Component {
           lng: this.props.lng
         }}
         onReady={this.props.fetchPlaces}
+        draggable={false}
       >
-        {this.props.loaded && (
-          <Marker
-            onClick={this.onIconClick}
-            name={"You are Here"}
-            position={{
-              lat: this.props.lat,
-              lng: this.props.lng
-            }}
-            clickable={true}
-            animation={this.props.google.maps.Animation.DROP}
-            icon={{
-              url: "../../../assests/placeholder.svg"
-              // This marker is 20 pixels wide by 32 pixels high.
-            }}
-          />
-        )}
+        <Marker
+          // onClick={this.onIconClick}
+          name={"You are Here"}
+          position={{
+            lat: this.props.lat,
+            lng: this.props.lng
+          }}
+          clickable={true}
+          animation={this.props.google.maps.Animation.DROP}
+          // icon={{
+          //   url: "./images/placeholder.svg"
+          //   // This marker is 20 pixels wide by 32 pixels high.
+          // }}
+        />
+
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
         >
           <div>
-            <p>{this.state.selectedPlace.name}</p>
+            <p></p>
           </div>
         </InfoWindow>
       </Map>
@@ -57,5 +57,5 @@ class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyA8Byy23oFligL0X1_WQYca0ABneIhxOow"
+  apiKey: "AIzaSyCcMtA-_NBxt6cD8uefrk6EFlv-2YfXtS0"
 })(MapContainer);

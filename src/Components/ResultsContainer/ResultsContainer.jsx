@@ -5,7 +5,7 @@ import MapContainer from "./Map/MapContainer";
 import RestaurauntsList from "./RestaurantContainer/RestaurantList/RestaurantsList";
 
 const ResultsContainer = props => {
-  console.log("Results Recieve Props", props);
+  console.log("Results Recieve AppContainer Props", props);
   return (
     <Fragment>
       <section className="app__filterBar">

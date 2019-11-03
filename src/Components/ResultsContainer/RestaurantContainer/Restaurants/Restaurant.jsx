@@ -9,6 +9,7 @@ const Restauraunt = ({ restarauntResults, reviewText }) => {
   const restaruants =
     restarauntResults &&
     restarauntResults.map((result, i) => (
+      
       <section key={i} className="rest__card">
         <div className="rest__card-img">
           <img src={result.photo} alt="my img" />

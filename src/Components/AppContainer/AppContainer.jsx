@@ -16,12 +16,13 @@ class AppContainer extends Component {
       pageSize: 5,
       ratings: [5, 4, 3, 2, 1]
     };
-
-    this.handleOpenNowFilter = this.handleOpenNowFilter.bind(this);
-    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   fetchPlaces = (mapProps, map) => {
+    // const home = {
+    //   lat: 51.593299099999996,
+    //   lng: -0.1037042
+    // };
     const { google } = mapProps;
     const userLocation = new google.maps.LatLng(this.props.lat, this.props.lng);
     const request = {
@@ -32,37 +33,54 @@ class AppContainer extends Component {
 
     const service = new google.maps.places.PlacesService(map);
     service.nearbySearch(request, getPlaces);
+    const storeRestaurants = this.storeRestaurants;
+    const getDeets = this.getDetails;
+    async function getPlaces(results, status, pagination) {
+      if (status === "OK") {
+        pagination.nextPage();
+        const getAllResults = await Promise.all([
+          ...results,
+          ...results,
+          ...results
+        ]);
 
-    function getPlaces(results, status) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        const place = Array.from(results);
-        console.log("Places returned from GAPI", place);
-        const placeId = place.map(placeResult => placeResult.id);
-        for (let i = 0; i < placeId.length; i++) {
-          const request = {
-            placeId: placeId[i],
-            fields: ["name", "rating", "opening_hours", "reviews"]
-          };
-          console.log("Request detail for each places", request);
-          const service = new google.maps.places.PlacesService(map);
-          service.getDetails(request, getReviews);
-          function getReviews(review, status) {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-              console.log("Reviews Return", review);
+        storeRestaurants(getAllResults);
+        const interval = 1000;
+        const placeId = getAllResults.map(placeResult => placeResult.place_id);
+        placeId.forEach((id, index) => {
+          setTimeout(() => {
+            const request = {
+              placeId: id,
+              fields: [
+                "name",
+                "place_id",
+                "rating",
+                "reviews",
+                "formatted_address"
+              ]
+            };
+            service.getDetails(request, getInfo);
+            function getInfo(results, status) {
+              if (status === "OK") {
+                // console.log("these are my results from get details", results);
+                getDeets(results);
+              }
             }
-          }
-        }
-
-        // for (let i = 0; i < place.length; i++) {
-        //   console.log(place[i]);
-        // }
+          }, interval * index);
+        });
       }
     }
   };
 
-  // storeRestaurants = gPlacesRestaurants => {
-  //   console.log("G Results", gPlacesRestaurants);
-  // };
+  componentDidMount() {
+    this.storeRestaurants = googlePlaces => {
+      console.log("Getting Results From Places Api 1", googlePlaces);
+    };
+  }
+
+  getDetails = result => {
+    console.log("All Individual Restaurant Data", result);
+  };
 
   onIconClick = (props, marker, e) =>
     this.setState({
@@ -74,8 +92,8 @@ class AppContainer extends Component {
   onClose = props => {
     if (this.state.showingInfoWindow) {
       this.setState({
-        showingInfoWindow: false,
-        activeMarker: null
+        // showingInfoWindow: false,
+        // activeMarker: null
       });
     }
   };
@@ -83,12 +101,6 @@ class AppContainer extends Component {
   handleRatings = () => {
     console.log(this.state.ratings);
   };
-
-  componentDidMount() {
-    // this.setState({
-    //   myRestaurants:
-    // });
-  }
 
   handleOpenNowFilter() {}
 
@@ -125,5 +137,5 @@ class AppContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyA8Byy23oFligL0X1_WQYca0ABneIhxOow"
+  apiKey: "AIzaSyCcMtA-_NBxt6cD8uefrk6EFlv-2YfXtS0"
 })(AppContainer);
