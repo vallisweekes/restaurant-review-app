@@ -1,0 +1,31 @@
+.rest__card-img img {
+    min-width: 280px;
+    height: 200px;
+    box-sizing: border-box;
+}
+
+.rest__card-info {
+    width: 500px;
+    max-width: 530px;
+    height: 200px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.rest__card-quality {
+    display: inline-block;
+    height: 30px;
+    width: 100px;
+    margin-top: 10px;
+    color: #e9bb00;
+    /* background-color: #002491; */
+}
+
+.rest__card-name,
+.rest__card-address {
+    color: #000000;
+    display: inline-block;
+    margin-top: 10px;
+    width: 3500px;
+    height: 30px;
+}

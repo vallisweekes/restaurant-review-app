@@ -1,0 +1,27 @@
+.app__container-results {
+    flex: 1 1 auto;
+    padding-top: 130px;
+    position: relative;
+}
+
+.app__results-viewport {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 80px;
+}
+
+.app__map-container {
+    width: 44%;
+    height: 100%;
+    position: fixed;
+    top: 210px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 888;
+}
+
+.app__results-column {
+    width: 55%;
+}
