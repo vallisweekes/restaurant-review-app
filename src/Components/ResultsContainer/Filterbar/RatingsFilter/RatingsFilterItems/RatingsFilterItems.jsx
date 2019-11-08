@@ -12,7 +12,7 @@ const RatingsFilterItems = props => {
           <li key={i} className="ratings__dropdonw-items p-2 ">
             <div>
               <input
-                ref={myRating}
+                value={myRating}
                 type="checkbox"
                 className="mr-2"
                 onChange={e => props.onStarSelect(e.target.value)}

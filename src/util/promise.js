@@ -1,5 +1,4 @@
-async function getAllData(){
-return new Promise ((resolve, reject)=>{
+const sleep = ms => {
+    return new Promise(resolve => setTimeout(resolve, ms))
 
-})
 }

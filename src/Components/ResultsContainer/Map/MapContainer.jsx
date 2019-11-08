@@ -41,7 +41,6 @@ class MapContainer extends Component {
           //   // This marker is 20 pixels wide by 32 pixels high.
           // }}
         />
-
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
