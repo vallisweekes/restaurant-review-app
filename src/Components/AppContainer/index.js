@@ -1,42 +1,79 @@
 import React from "react";
-import {Map GoogleApiWrapper } from "google-maps-react";
-import AppContainer from "../AppContainer/AppContainer";
+import {Map, GoogleApiWrapper } from "google-maps-react";
+import AppContainer from "./AppContainer";
 
 
-class GoogleMap extends React.Component {
+export default class Container extends React.Component {
   constructor(props) {
     super(props);
 
-    this.fetchPlaces = this.fetchPlaces.bind(this);
-  }
-
-  fetchPlaces = (mapProps, map) => {
-    const { google } = mapProps;
-    console.log(mapProps);
-    const userLocation = new google.maps.LatLng(this.props.lat, this.props.lng);
-    const request = {
-      location: userLocation,
-      radius: "900",
-      type: ["restaurant"]
-    };
-
-    const service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, getPlaces);
-    const { storeRestaurants } = this.props;
-    function getPlaces(results, status) {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        storeRestaurants(Array.from(results));
-      }
+    this.state = {
+      restaurants: [],
+      reviews: []
     }
-  };
-  storeRestaurants = data => {
-    console.log("google data", data);
-  };
-  render() {
-    return <AppContainer data={this.fetchPlaces} />;
   }
+
+  addRestaurants = (toAddRestaurants) => {
+    const { restaurants } = this.state;
+
+    this.setState({
+      restaurants: [...restaurants, ...toAddRestaurants]
+    });
+  };
+
+  addReviews = (restaurantId, reviews) => {
+
+    this.setState({
+      reviews: [...this.state.reviews, {[restaurantId]: reviews}]
+    });
+  };
+
+  allRestaurantsLoaded = (google, map) => {
+    // SAHIB: Once all restaurants are loaded, we shall get reviews for them (call AllPlaces functinon)
+    const { restaurants } = this.state;
+    const placeIds = restaurants.map(res => {
+        return res.place_id;
+      });
+
+    this.allPlaces(google, map,placeIds);
+  }
+
+  allPlaces = (google, map, placeIds) => {
+    const addReviews = this.addReviews;
+
+    placeIds.map((Id, i) => {
+      setTimeout(() => {
+        const request = {
+          placeId: `${Id}`,
+          fields: ["name", "place_id", "rating", "reviews", "formatted_address"]
+        };
+        const service = new google.maps.places.PlacesService(map);
+        service.getDetails(request, getInfo);
+
+        function getInfo(results, status) {
+          if (status === "OK") {
+            addReviews(Id, results);
+          }
+        }
+      }, 2500);
+
+      return Id;
+    });
+  }
+
+  render() {
+    const { lat, lng } = this.props;
+    const { restaurants, reviews } = this.state;
+
+    console.log('restaurants, reviews', restaurants, reviews);
+
+    return <AppContainer
+            lat={lat}
+            lng={lng} 
+            addRestaurants={this.addRestaurants}
+            allRestaurantsLoaded={this.allRestaurantsLoaded}
+      />;
+  }
+
 }
 
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyA8Byy23oFligL0X1_WQYca0ABneIhxOow"
-})(GoogleMap);
