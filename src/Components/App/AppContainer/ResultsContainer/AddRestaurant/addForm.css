@@ -1,0 +1,110 @@
+.add--restaurant {
+    font-family: 'Rubik', sans-serif;
+    position: fixed;
+    bottom: 0.25rem;
+    width: 315px;
+    /* min-height: 500px; */
+    z-index: 1800 !important;
+    margin: 0 1rem 0 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    background-color: #fafafa;
+    overflow: scroll;
+    transition: opacity 2s
+}
+
+.add--restaurant-wrapper {
+    width: 100%;
+    padding: 1rem 3rem 1rem 3rem;
+    z-index: 1000;
+}
+
+.add--restaurant-wrapper input {
+    height: 2.25rem;
+}
+
+.add--restaurant-wrapper input::placeholder {
+    padding-left: 0.50rem;
+}
+
+.add--restaurant-wrapper footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+.form-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.personal-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.restaurant-details {
+    margin-top: 1rem;
+}
+
+.form-selection {
+    width: 19%;
+}
+
+.form-btn {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 34px;
+    padding-left: 20px;
+    padding-right: 20px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    margin-right: 1em;
+}
+
+.cancel {
+    border: solid 1px #e0e0e0;
+    color: #1a73e8;
+}
+
+.submit {
+    background-color: #1a73e8 !important;
+    border: solid 1px #1a73e8;
+    color: #ffffff;
+}
+
+.add--photo-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #efefef;
+    margin: 12px 4px 0 0;
+    width: 114px;
+    height: 95px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+
+.add--photo-content:hover {
+    background: #4285f414;
+    border: 2px solid #d2e3fc;
+}
+
+.add--photo-image {
+    height: 24px;
+    color: #1a73e8;
+}
+
+.add-photo-checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.add-photo-checkbox label {
+    margin-right: 5px;
+}

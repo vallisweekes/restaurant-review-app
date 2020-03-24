@@ -1,0 +1,189 @@
+/*Small devices (landscape phones, 576px and up)*/
+
+@media(max-width: 320px) {
+    .location-searchbox {
+        max-width: 19rem;
+    }
+}
+
+@media (min-width: 479px) {
+    .app--header-content {
+        display: flex;
+        justify-content: space-evenly !important;
+        flex-direction: row !important;
+    }
+    .rest__card {
+        display: flex !important;
+        justify-content: space-between;
+        max-width: 100%;
+    }
+    .rest__card-img-holder {
+        height: 220px;
+    }
+    .add--restaurant {
+        width: 450px !important;
+        height: 550px;
+        transition: ease-in;
+        /* min-height: 550px; */
+        /* left: 10rem */
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .modal--contianer {
+        width: 500px !important;
+    }
+    .modal-form {
+        max-width: 480px;
+        left: 3rem;
+    }
+}
+
+
+/* Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {
+    .app__filterBar {
+        justify-content: space-evenly!important;
+        height: 60px;
+    }
+    .rest__card {
+        width: 100% !important;
+        height: 180px !important;
+    }
+    .modal-form {
+        max-width: 600px;
+        left: 8rem;
+    }
+    .modal--contianer {
+        width: 500px!important;
+        left: 7rem;
+        bottom: 9px !important;
+    }
+    .modal--form-inner {
+        width: 80% !important;
+    }
+    .add--restaurant {
+        width: 500px !important;
+        height: 560px;
+        top: 12rem;
+    }
+    .popup--content {
+        width: 50% !important;
+    }
+    .rest__card-img-holder {
+        width: 40% !important;
+        box-sizing: border-box;
+    }
+    .rest__card-img-holder img {
+        width: 100%;
+        height: 180px !important;
+    }
+    .rest__card-info {
+        width: 60% !important;
+        box-sizing: border-box;
+    }
+    .filterBar__wrapper {
+        justify-content: space-evenly !important;
+        width: 100%;
+    }
+    .filterBar--section-filters {
+        display: flex;
+        align-items: center;
+        width: 50%;
+    }
+    .filterBar--section-search {
+        display: flex;
+        justify-content: flex-end;
+        width: 50%;
+        padding-right: 2rem;
+    }
+    .location-searchbox {
+        min-width: 500px !important;
+    }
+}
+
+
+/*Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {
+    .app__map-container-results {
+        top: 90px !important;
+    }
+    .app__results-viewport {
+        display: flex;
+        flex-direction: row !important;
+        width: 100%;
+        padding-top: 90px;
+    }
+    .app__map-container {
+        width: 50% !important;
+        height: 100% !important;
+        top: 225px !important;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .app__results-column {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    .app__filterBar {
+        justify-content: space-between !important;
+    }
+    .rest__container {
+        width: 100% !important;
+        margin-top: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    .ratings--wrapper {
+        padding-right: 1rem !important;
+        max-width: 100% !important;
+    }
+    .modal-form {
+        left: 15rem !important;
+        width: 600px !important;
+    }
+    .location-searchbox {
+        width: 400px !important;
+    }
+    .rest__card {
+        height: 180px !important;
+        padding: 0 1rem 0 1rem !important;
+    }
+    .modal--contianer {
+        position: fixed;
+        width: 500px !important;
+        left: 9rem;
+        bottom: 9px;
+    }
+    .add--restaurant {
+        width: 500px !important;
+        height: 560px;
+        top: 12rem;
+        left: 13rem;
+        transition: 0.3s;
+    }
+}
+
+
+/*Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1400px) {
+    .rest__container {
+        margin-top: 0!important;
+    }
+    .rest__card-address {
+        word-wrap: break-word !important;
+    }
+    .rest__card-name {
+        margin-top: 10px;
+        height: 30px;
+    }
+    .modal--contianer {
+        position: fixed;
+        width: 500px !important;
+        left: 13rem;
+    }
+}

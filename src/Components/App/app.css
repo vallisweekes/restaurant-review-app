@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    font-size: 62.5%;
+    line-height: 1.8;
+}
+
+a {
+    color: #07c;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.app__container {
+    position: relative;
+    width: 100%;
+}
+
+.btn__style {
+    display: flex;
+    align-items: center;
+    color: #0067DB;
+}
+
+.btn__style-round {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 25px;
+}
+
+.btn__style-round:hover {
+    border: 1.5px solid #0359bb;
+}
+
+.mt-6 {
+    margin-top: 10px;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-size-lg {
+    font-size: 20px;
+}
+
+.flex__items-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex__items-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.flex__ {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap !important;
+    flex-shrink: 1;
+}
+
+.MuiSvgIcon-fontSizeSmall {
+    font-size: 1rem !important;
+}
+
+
+/* .MuiSvgIcon-root {
+    color: darkorange;
+    font-size: 0.8em !important;
+} */
+
+.pagination__ {
+    display: flex;
+    list-style: none;
+}

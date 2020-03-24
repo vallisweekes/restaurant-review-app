@@ -1,0 +1,98 @@
+.app__map {
+    width: 100%;
+    background-color: #fff;
+}
+
+.app__map-container {
+    margin-bottom: 50px!important;
+    width: 100%;
+}
+
+.infowindow--container {
+    box-sizing: border-box;
+    width: 230px;
+    height: auto;
+    overflow: hidden;
+}
+
+.infowindow--container-inner {
+    display: block;
+}
+
+.infowindow--container-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    color: royalblue;
+}
+
+.infowindow--container-quality {
+    font-weight: bold;
+    padding: 2px 3px;
+    margin-right: 10px;
+}
+
+.infowindow--container-quality .ok span {
+    display: inline-block;
+    padding: 3px, 6px;
+}
+
+.infowindow--container-inner img {
+    width: 100%;
+    max-height: 70px;
+    object-fit: cover;
+}
+
+.infowindow--container-inner p {
+    margin-top: .5em;
+    padding: 0 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.infowindow--modal-content {
+    /* position: absolute;
+    top: 80;
+    left: 70; */
+}
+
+.infowindow--modal-container {
+    background-color: rgb(247, 247, 247) !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 400px !important;
+    height: 320px !important;
+    min-height: 120px !important;
+    padding-top: 10px;
+    display: block !important;
+}
+
+.infowindow--modal-header h2 {
+    text-transform: capitalize;
+    padding-bottom: 15px;
+}
+
+.infowindow--modal-header img {
+    width: 400px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.btn--modal {
+    width: 100%;
+    padding: 10px;
+    background-color: royalblue;
+    font-weight: bold;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.gm-style .gm-style-iw-t::after {
+    display: none;
+}
+
+.gm-style-iw-a {
+    position: fixed !important;
+    bottom: 60;
+}

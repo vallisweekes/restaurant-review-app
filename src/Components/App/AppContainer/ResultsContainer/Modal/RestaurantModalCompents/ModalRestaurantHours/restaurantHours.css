@@ -1,0 +1,22 @@
+.restaurant--hours {
+    display: flex;
+    font-weight: 500;
+}
+
+.restaurant--hours-open {
+    font-weight: 600;
+    color: #000000;
+}
+
+.restaurant--hours-close {
+    font-weight: 600;
+    color: #850606;
+}
+
+.restaurant--hours-close-icon {
+    color: #918e8e;
+}
+
+.restaurant--hours-open-icon {
+    color: #06df18;
+}

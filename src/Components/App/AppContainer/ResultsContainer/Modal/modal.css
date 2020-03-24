@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+address,
+section,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.border-b {
+    border-bottom: 1px solid #eee;
+}
+
+.m--botom-10 {
+    margin-bottom: 10px;
+}
+
+.m--botom-20 {
+    margin-bottom: 20px;
+}
+
+.modal--contianer {
+    font-family: 'Rubik', sans-serif;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    transition: 0.3s;
+    /* margin: 0 1rem 0 1rem; */
+    /* padding: 5px 0 0 5px; */
+}
+
+.modal--contianer-inner {
+    width: 100%;
+    /* height: 590px; */
+    max-height: 595px;
+    position: relative;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* bottom: 1em; */
+    /* opacity: 1;
+    scrollbar-color: #fffffd; */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    background-color: #ffffff;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .3s;
+}
+
+.modal--contianer-inner::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.modal--contianer-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.modal--container-header {
+    margin-top: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal--container-body {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 5px;
+}
+
+.header-img {
+    margin: 15px 0 10px 0;
+    padding: 5px 0 10px 0;
+    width: 100%;
+    height: 170px;
+    border-top: 1px solid #eee;
+}
+
+.modal--contianer-slide {
+    width: 100%;
+    height: 170px !important;
+}
+
+.modal--container-hours {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal--review-wrapper {
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.modal--review-inner {
+    padding: 15px;
+}
+
+.add-reviews {
+    cursor: pointer;
+    text-align: center;
+}
+
+.modal-btn {
+    background-color: #042ed8;
+    color: #ffffff;
+    padding: 5px;
+    width: 60%;
+    height: 50px;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: 0.4s;
+}
+
+.modal-btn:hover {
+    background-color: #1562e6;
+}
+
+
+/* button.modal-btn:hover {
+    background-color: #1562e6;
+    ;
+} */
+
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+    opacity: 0.3;
+    cursor: pointer !important;
+}
+
+.modal-close:hover {
+    opacity: 1;
+}
+
+.modal-close:before,
+.modal-close:after {
+    position: absolute;
+    left: 20px;
+    content: ' ';
+    height: 25px;
+    width: 2px;
+    background-color: rgb(33, 32, 32);
+}
+
+.modal-close:before {
+    transform: rotate(45deg);
+}
+
+.modal-close:after {
+    transform: rotate(-45deg);
+}
+
+.display-block {
+    display: block;
+}
+
+.display-none {
+    display: none;
+}
+
+.reviews-body {
+    display: flex;
+}
+
+.reviews-body img {
+    width: 70px;
+    height: 60px;
+    padding-right: 5px;
+}
+
+.modal-body p {
+    width: 70%;
+}
+
+.text-small {
+    padding: 5px 10px 5px 10px;
+    font-size: 13px;
+}
+
+.review-total {
+    font-size: 13px;
+    color: #0631de;
+}
+
+.review--card {
+    background-color: rgba(235, 235, 235, 0.413);
+    padding: 1em;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 18px;
+    border-bottom: 1px solid #cecaca;
+}
+
+.review--card-review {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review--card-ratings {
+    display: flex !important;
+    justify-content: flex-start;
+}
+
+.review--card-ratings span {
+    margin-left: 3px;
+}
+
+.review--card-img {
+    width: 15%;
+}
+
+.review--card-img img {
+    width: 60px;
+}
+
+.review-card-text {
+    width: 80%;
+}
+
+.read-more-button {
+    color: #0083d5;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.web a {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.web {
+    color: #ffffff;
+    padding: 5px 20px 5px 20px;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #042ed8;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.web:hover {
+    background-color: #1562e6;
+    box-shadow: 0 1px 2px rgba(123, 123, 123, 0.16), 0 1px 2px rgba(0, 0, 0, .23);
+}
+
+.react-slideshow-container.nav {
+    margin: 0 2rem;
+}
+
+.modal--starrating-wrap {
+    display: flex;
+}
