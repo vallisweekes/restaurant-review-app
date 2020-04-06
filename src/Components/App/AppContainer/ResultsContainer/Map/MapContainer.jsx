@@ -30,7 +30,7 @@ const MapContainer = (props) => {
           lat: lat,
           lng: lng,
         }}
-        onDblclick={props.addMarker}
+        // onDblclick={props.addMarker}
         scaleControl={true}
         mapTypeControlOptions={true}
       >
@@ -56,7 +56,7 @@ const MapContainer = (props) => {
                 lng: result.location.lng,
                 lat: result.location.lat,
               }}
-              // onClick={onIconClick}
+              onClick={onIconClick}
             />
           ))}
         <Marker
