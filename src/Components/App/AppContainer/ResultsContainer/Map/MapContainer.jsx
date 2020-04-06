@@ -5,7 +5,7 @@ import InfoWindowContainer from './InfoWindowContent';
 // import { zoomFix } from '../../../../../util/zoomCondition';
 import './map.css';
 
-const MapContainer = props => {
+const MapContainer = (props) => {
   const {
     restaraunts,
     googleMap,
@@ -15,7 +15,7 @@ const MapContainer = props => {
     activeMarker,
     selectedPlace,
     showInfoWindow,
-    onClose
+    onClose,
   } = props;
 
   // const iConImage = 'https://www.vallisweekes.com/img/map_pin_red.png';
@@ -28,14 +28,14 @@ const MapContainer = props => {
         zoom={13}
         initialCenter={{
           lat: lat,
-          lng: lng
+          lng: lng,
         }}
         onDblclick={props.addMarker}
         scaleControl={true}
         mapTypeControlOptions={true}
       >
         {restaraunts.length &&
-          restaraunts.map(result => (
+          restaraunts.map((result) => (
             <Marker
               key={result.id.toString()}
               placeId={result.placeid}
@@ -54,9 +54,9 @@ const MapContainer = props => {
               restarauntRating={result.rating ? result.rating : null}
               position={{
                 lng: result.location.lng,
-                lat: result.location.lat
+                lat: result.location.lat,
               }}
-              onClick={onIconClick}
+              // onClick={onIconClick}
             />
           ))}
         <Marker
@@ -64,7 +64,7 @@ const MapContainer = props => {
           name={'You are Here'}
           position={{
             lat: lat,
-            lng: lng
+            lng: lng,
           }}
           clickable={true}
           icon={'https://www.vallisweekes.com/img/you_are_here.png'}

@@ -2,9 +2,9 @@ import React from 'react';
 import Pagination from '../Pagination/Pagination';
 import Sort from './Sort/Sort';
 import Restauraunt from './Restaurants/Restaurant';
-import HomeIcon from '@material-ui/icons/Home';
+// import HomeIcon from '@material-ui/icons/Home';
 
-const RestaurauntsList = props => {
+const RestaurauntsList = (props) => {
   const {
     restarauntResults,
     itemCount,
@@ -13,15 +13,15 @@ const RestaurauntsList = props => {
     onPageChange,
     googleMap,
     onSort,
-    saveUserHomeLocation,
-    handleHomeRestaurants,
+    // saveUserHomeLocation,
+    // handleHomeRestaurants,
     handleFavourite,
     showDetails,
     lat,
-    lng
+    lng,
   } = props;
 
-  const restaurantlist = restarauntResults.map(result => (
+  const restaurantlist = restarauntResults.map((result) => (
     <section
       key={result.id}
       className="rest__card"
@@ -54,7 +54,7 @@ const RestaurauntsList = props => {
   return (
     <main className="rest__container">
       <header className="rest__container-header">
-        {saveUserHomeLocation ? (
+        {/*{saveUserHomeLocation ? (
           <section>
             <HomeIcon
               style={{
@@ -66,7 +66,7 @@ const RestaurauntsList = props => {
               onClick={handleHomeRestaurants}
             />
           </section>
-        ) : null}
+            ) : null}*/}
         <div className="rest__results-info">
           Showing {restarauntResults.length} of {itemCount} results
         </div>

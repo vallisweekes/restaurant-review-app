@@ -28,7 +28,7 @@ class Container extends Component {
       loading: false,
       mapProps: {},
       map: {},
-      showAddRestaurantForm: false
+      showAddRestaurantForm: false,
     };
   }
 
@@ -43,7 +43,7 @@ class Container extends Component {
     this.setState({
       saveUserHomeLocation: true,
       map,
-      mapProps
+      mapProps,
     });
 
     //Check 1 compare both locations
@@ -79,19 +79,19 @@ class Container extends Component {
             JSON.stringify(myRestData)
           );
           this.setState({
-            restaurants: cachedRestaurantWithHome
+            restaurants: cachedRestaurantWithHome,
           });
         } else {
           console.log('caching 2.... else block');
           this.setState({
-            restaurants: cachedRestaurants
+            restaurants: cachedRestaurants,
           });
         }
       } else {
         console.log('feacting......1');
         this.setState({
           map,
-          mapProps
+          mapProps,
         });
 
         const { google } = mapProps;
@@ -102,7 +102,7 @@ class Container extends Component {
         const request = {
           location: geoLocation,
           radius: '800',
-          type: ['restaurant']
+          type: ['restaurant'],
         };
 
         const service = new google.maps.places.PlacesService(map);
@@ -122,10 +122,9 @@ class Container extends Component {
         }
       }
     } else {
-      console.log('else fetching .....');
       this.setState({
         map,
-        mapProps
+        mapProps,
       });
       if (isCached) {
         console.log('inside caching 2.....');
@@ -135,7 +134,7 @@ class Container extends Component {
         );
 
         this.setState({
-          restaurants: cachedRestaurants
+          restaurants: cachedRestaurants,
         });
       } else {
         console.log('else inside fectching 2.....');
@@ -147,7 +146,7 @@ class Container extends Component {
         const request = {
           location: geoLocation,
           radius: '800',
-          type: ['restaurant']
+          type: ['restaurant'],
         };
 
         const service = new google.maps.places.PlacesService(map);
@@ -171,14 +170,14 @@ class Container extends Component {
   allRestaurantsLoaded = (google, map) => {
     return { google, map };
   };
-  addRestaurants = restaurantData => {
+  addRestaurants = (restaurantData) => {
     const ImageUrl = 'https://www.vallisweekes.com/img/noimage.jpg';
-    const newRestaurantData = restaurantData.map(place => {
+    const newRestaurantData = restaurantData.map((place) => {
       return {
         id: place.id,
         location: {
           lng: place.geometry.location.lng(),
-          lat: place.geometry.location.lat()
+          lat: place.geometry.location.lat(),
         },
         name: place.name,
         photos: place.photos ? place.photos[0].getUrl() : ImageUrl,
@@ -186,14 +185,14 @@ class Container extends Component {
         rating: place.rating ? Math.ceil(place.rating) : 0,
         totalRatings: place.user_ratings_total ? place.user_ratings_total : 0,
         address: place.vicinity,
-        favourite: false
+        favourite: false,
       };
     });
     const { restaurants } = this.state;
     this.setState(
       {
         restaurants: [...restaurants, ...newRestaurantData],
-        isCached: true
+        isCached: true,
       },
       () => {
         if (restaurants.length) {
@@ -221,7 +220,7 @@ class Container extends Component {
       localStorage.getItem('cachedRestaurantsWithInhouse')
     );
     console.log('Checking combined', checkCombineRestaurants);
-    const filterRestaurants = restaurants.filter(place => {
+    const filterRestaurants = restaurants.filter((place) => {
       return place.placeId === placeid;
     });
 
@@ -234,21 +233,21 @@ class Container extends Component {
 
     if (cached.length > 0 && cached.length !== null) {
       const filteredCacheResults = cached.filter((result, i) => {
-        return cached.map(val => val.id).indexOf(result.id) === i;
+        return cached.map((val) => val.id).indexOf(result.id) === i;
       });
       console.log('Filtered csche results', filteredCacheResults);
       const storingSeletedFilteredData = filteredCacheResults.filter(
-        f => f.id === id
+        (f) => f.id === id
       );
 
       console.log('Storng Selected Filter data', storingSeletedFilteredData);
       if (storingSeletedFilteredData.length === 1) {
         console.log('using cache selected....1');
-        const cacheDetails = filteredCacheResults.filter(f => f.id === id);
+        const cacheDetails = filteredCacheResults.filter((f) => f.id === id);
 
         this.setState({
           selectedRestaurant: cacheDetails,
-          showModal: true
+          showModal: true,
         });
       } else {
         console.log('second fetch....');
@@ -268,22 +267,22 @@ class Container extends Component {
           'reviews',
           'formatted_phone_number',
           'website',
-          'photos'
-        ]
+          'photos',
+        ],
       };
       service.getDetails(request, getInfo);
       function getInfo(results, status) {
         if (status === 'OK') {
-          const mapRest = filterRestaurants.map(resKeys => {
+          const mapRest = filterRestaurants.map((resKeys) => {
             return {
               ...resKeys,
               reviews: Object.assign({}, results).reviews,
               website: Object.assign({}, results).website,
               phoneNumber: Object.assign({}, results).formatted_phone_number,
-              customersPhoto: Object.assign({}, results).photos.map(p =>
+              customersPhoto: Object.assign({}, results).photos.map((p) =>
                 p.getUrl()
               ),
-              openingHours: Object.assign({}, results).opening_hours
+              openingHours: Object.assign({}, results).opening_hours,
             };
           });
           // FUNCTION this.detailstorage
@@ -293,11 +292,11 @@ class Container extends Component {
     }
   };
   //Using to cache selected restaurant
-  detailsStorage = details => {
+  detailsStorage = (details) => {
     // const reviews = details.map(rev => rev.reviews);
     console.log(details);
     const cacheData = this.state.selectedCacheRestaurant;
-    cacheData.push(details.reduce(acc => acc));
+    cacheData.push(details.reduce((acc) => acc));
     console.log('selected Cache data Call 2', cacheData);
 
     localStorage.setItem('selectedRestaurantCache', JSON.stringify(cacheData));
@@ -305,12 +304,11 @@ class Container extends Component {
     const getStoredRestaurant = localStorage.getItem('selectedRestaurantCache');
 
     const storedData = Array.from(JSON.parse(getStoredRestaurant));
-    console.log('checking stored Then call 3', storedData);
 
     this.setState({
       selectedCacheRestaurant: storedData,
       selectedRestaurant: details,
-      showModal: true
+      showModal: true,
     });
     this.showModal();
   };
@@ -376,8 +374,8 @@ class Container extends Component {
     this.setState({
       selectedCacheRestaurant: [
         restaurant,
-        ...this.state.selectedCacheRestaurant
-      ]
+        ...this.state.selectedCacheRestaurant,
+      ],
     });
 
     localStorage.setItem(
@@ -395,7 +393,7 @@ class Container extends Component {
       restaurantQuality: '',
       rating: 'rating',
       position: e.latLng,
-      map: map
+      map: map,
     });
     console.log('Checking events', google);
     setTimeout(() => {
@@ -404,10 +402,10 @@ class Container extends Component {
     this.getMakerProps(marker, mapProps, map);
 
     const infowindow = new google.maps.InfoWindow({
-      content: {}
+      content: {},
     });
 
-    marker.addListener('click', function() {
+    marker.addListener('click', function () {
       infowindow.open(map, marker);
     });
     return marker;
@@ -416,20 +414,20 @@ class Container extends Component {
   // ADD RESTAURANT FORM
   showAddRestaurantForm = () => {
     this.setState({
-      showAddRestaurantForm: true
+      showAddRestaurantForm: true,
     });
   };
 
   closeAddRestauantForm = () => {
     this.setState({
-      showAddRestaurantForm: false
+      showAddRestaurantForm: false,
     });
   };
 
-  getMakerProps = makerProps => {
+  getMakerProps = (makerProps) => {
     //PASSING ADDED RESTAURANT OBJECT
 
-    this.addRestaurantOnMap = restObj => {
+    this.addRestaurantOnMap = (restObj) => {
       restObj.location.lat = makerProps.position.lat();
       restObj.location.lng = makerProps.position.lng();
       makerProps.name = restObj.name;
@@ -438,14 +436,14 @@ class Container extends Component {
 
       this.setState({
         restaurants: [restObj, ...this.state.restaurants],
-        showAddRestaurantForm: false
+        showAddRestaurantForm: false,
       });
       const selectedRestaurantCache = JSON.parse(
         localStorage.getItem('selectedRestaurantCache')
       );
       const addNewRestaurant = [
         restObj,
-        ...Array.from(selectedRestaurantCache)
+        ...Array.from(selectedRestaurantCache),
       ];
 
       localStorage.setItem(
@@ -487,11 +485,11 @@ class Container extends Component {
       );
 
       this.setState({
-        restaurants: JSON.parse(getinHouseRestaurants)
+        restaurants: JSON.parse(getinHouseRestaurants),
       });
     } else {
       this.setState({
-        restaurants
+        restaurants,
       });
     }
   };
@@ -508,19 +506,19 @@ class Container extends Component {
     ) {
       setTimeout(() => {
         this.setState({
-          showPopUp: true
+          showPopUp: true,
         });
       }, 4000);
     } else {
       this.setState({
         saveUserHomeLocation: isLocationSet,
-        userHomeLocation
+        userHomeLocation,
       });
     }
 
     this.handleCLosePopUp = () => {
       this.setState({
-        showPopUp: false
+        showPopUp: false,
       });
     };
   }
@@ -530,17 +528,17 @@ class Container extends Component {
     const searchResults = this.searchResults;
     const { mapProps, map } = this.state;
     const { google } = mapProps;
-    this.handleSearchLatLng = obj => {
+    this.handleSearchLatLng = (obj) => {
       this.setState({
         restaurants: [],
-        coordinates: { lat: obj.lat, lng: obj.lng }
+        coordinates: { lat: obj.lat, lng: obj.lng },
       });
       const newLocation = new google.maps.LatLng(obj.lat, obj.lng);
 
       const request = {
         location: newLocation,
         radius: '800',
-        type: ['restaurant']
+        type: ['restaurant'],
       };
       const service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, getPlaces);
@@ -554,33 +552,33 @@ class Container extends Component {
         searchResults(myResults);
       }
     };
-    this.searchResults = searchResults => {
+    this.searchResults = (searchResults) => {
       const searchRestaurantData = searchResults.map((place, i) => {
         return {
           id: place.id,
           location: {
             lng: place.geometry.location.lng(),
-            lat: place.geometry.location.lat()
+            lat: place.geometry.location.lat(),
           },
           name: place.name,
           photos: place.photos ? place.photos[0].getUrl() : ImageUrl,
           placeId: place.place_id,
           rating: place.rating ? Math.ceil(place.rating) : 0,
           totalRatings: place.user_ratings_total ? place.user_ratings_total : 0,
-          address: place.vicinity
+          address: place.vicinity,
         };
       });
       localStorage.setItem('selectedRestaurantCache', JSON.stringify([]));
       const { restaurants } = this.state;
 
       this.setState({
-        restaurants: [...restaurants, ...searchRestaurantData]
+        restaurants: [...restaurants, ...searchRestaurantData],
       });
     };
   }
 
   // Handle Favourite
-  handleFavourite = restaurant => {
+  handleFavourite = (restaurant) => {
     const restaurants = [...this.state.restaurants];
     const index = restaurants.indexOf(restaurant);
     restaurants[index] = { ...restaurants[index] };
@@ -588,22 +586,22 @@ class Container extends Component {
 
     this.setState({
       restaurants,
-      favourites: restaurants.filter(result => result.favourite === true)
+      favourites: restaurants.filter((result) => result.favourite === true),
     });
 
-    restaurants.filter(result => result.favourite === true);
+    restaurants.filter((result) => result.favourite === true);
   };
   // Handle showing modal
   showModal = () => {
     this.setState({
-      showModal: true
+      showModal: true,
     });
   };
   //handle Hiding Modal
   hideModal = () => {
     this.setState({
       showModal: false,
-      placeDetails: []
+      placeDetails: [],
     });
   };
 
@@ -616,7 +614,7 @@ class Container extends Component {
       showPopUp,
       saveUserHomeLocation,
       favourites,
-      mapProps
+      mapProps,
     } = this.state;
 
     return (
@@ -627,7 +625,7 @@ class Container extends Component {
           onReady={this.fetchPlaces}
           initialCenter={{
             lat: coordinates.lat,
-            lng: coordinates.lng
+            lng: coordinates.lng,
           }}
         />
 
@@ -661,5 +659,5 @@ class Container extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCcMtA-_NBxt6cD8uefrk6EFlv-2YfXtS0'
+  apiKey: 'AIzaSyCcMtA-_NBxt6cD8uefrk6EFlv-2YfXtS0',
 })(Container);
