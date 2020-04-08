@@ -17,11 +17,6 @@ class Modal extends Component {
     super();
     this.myRef = React.createRef();
   }
-  componentDidMount() {
-    // const modal = $(this.myRef);
-    // modal.fadeIn('slow');
-    // console.log('check jquery', modal);
-  }
 
   render() {
     const {
@@ -43,7 +38,7 @@ class Modal extends Component {
       onReviewSubmit,
       setRating,
       reviewButtonControl,
-      selectedRestaurantObj
+      selectedRestaurantObj,
     } = this.props;
     // console.log('Reviews ', selectedReview);
     const showFormDisplay = showForm

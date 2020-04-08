@@ -1,0 +1,1 @@
+"use strict";var _redux=require("redux"),store=(0,_redux.createStore)();console.log(store);

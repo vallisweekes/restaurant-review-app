@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
-// import Logo from './Logo';
 import FilterBar from './Filterbar/FilterBar';
 import './header.css';
 
-const Header = props => {
+const Header = (props) => {
   const { searchLatLng, onRatingChecked, restaraunts, ratings } = props;
   return (
     <Fragment>

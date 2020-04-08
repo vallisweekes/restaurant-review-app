@@ -18,19 +18,19 @@ class AppContainer extends Component {
     isChecked: false,
     ratingValue: [],
 
-    sortItem: { path: 'name', order: 'asc' }
+    sortItem: { path: 'name', order: 'asc' },
   };
 
   static propTypes = {
     myRestaurants: PropTypes.array,
     currentPage: PropTypes.number,
-    pageSize: PropTypes.number
+    pageSize: PropTypes.number,
   };
 
   componentDidMount() {
     // console.log('component did mount', this.props);
     this.setState({
-      myRestaurants: [this.props.restaurantResults]
+      myRestaurants: [this.props.restaurantResults],
     });
   }
 
@@ -38,40 +38,40 @@ class AppContainer extends Component {
   handleRatings = (rating, e) => {
     const ratingValue = this.state.ratingValue;
     this.setState({
-      isChecked: e.target.checked
+      isChecked: e.target.checked,
     });
     if (e.target.checked) {
       ratingValue.push(rating);
       this.setState({
-        ratingValue: ratingValue
+        ratingValue: ratingValue,
       });
     } else if (ratingValue.includes(rating)) {
       ratingValue.splice(ratingValue.indexOf(rating), 1);
       this.setState({
-        ratingValue: ratingValue
+        ratingValue: ratingValue,
       });
     }
   };
 
-  handleFavourite = restaurant => {
+  handleFavourite = (restaurant) => {
     const restaurants = [...this.state.restaurants];
     const index = restaurants.indexOf(restaurant);
     restaurants[index] = { ...restaurants[index] };
     restaurants[index].favourite = !restaurants[index].favourite;
     this.setState({
       restaurants,
-      favourites: restaurants.filter(result => result.favourite === true)
+      favourites: restaurants.filter((result) => result.favourite === true),
     });
 
-    restaurants.filter(result => result.favourite === true);
+    restaurants.filter((result) => result.favourite === true);
   };
-  handlePageChange = page => {
+  handlePageChange = (page) => {
     this.setState({
-      currentPage: page
+      currentPage: page,
     });
   };
 
-  handleSort = path => {
+  handleSort = (path) => {
     const sortItem = { ...this.state.sortItem };
 
     if (sortItem.path === path) {
@@ -89,7 +89,7 @@ class AppContainer extends Component {
       currentPage,
       ratings,
       ratingValue,
-      sortItem
+      sortItem,
     } = this.state;
 
     const {
@@ -115,7 +115,7 @@ class AppContainer extends Component {
       saveUserHomeLocation,
       handleHomeRestaurants,
       handleFavourite,
-      mapProps
+      mapProps,
     } = this.props;
 
     const { length: count } = this.props.restaurantResults;
@@ -123,7 +123,7 @@ class AppContainer extends Component {
     // Filtering Restaurant
     const filtered =
       ratingValue.length !== 0
-        ? restaurantResults.filter(result => {
+        ? restaurantResults.filter((result) => {
             return ratingValue.includes(result.rating);
           })
         : restaurantResults;

@@ -313,58 +313,58 @@ class Container extends Component {
     this.showModal();
   };
 
-  // homeDefault = value => {
-  //   if (JSON.stringify(this.state.coordinates) === JSON.stringify(home)) {
-  //     if (value === 'yes') {
-  //       const userHomeLocation = this.state.coordinates;
+  homeDefault = (value) => {
+    if (JSON.stringify(this.state.coordinates) === JSON.stringify(home)) {
+      if (value === 'yes') {
+        const userHomeLocation = this.state.coordinates;
 
-  //       //condition for showin home i can
-  //       this.setState(
-  //         {
-  //           saveUserHomeLocation: true,
-  //           userHomeLocation
-  //         },
-  //         () => {
-  //           localStorage.setItem(
-  //             'saveUserHomeLocation',
-  //             JSON.stringify(this.state.saveUserHomeLocation)
-  //           );
-  //           localStorage.setItem(
-  //             'userHomeLocation',
-  //             JSON.stringify(userHomeLocation)
-  //           );
+        //condition for showin home i can
+        this.setState(
+          {
+            saveUserHomeLocation: true,
+            userHomeLocation,
+          },
+          () => {
+            localStorage.setItem(
+              'saveUserHomeLocation',
+              JSON.stringify(this.state.saveUserHomeLocation)
+            );
+            localStorage.setItem(
+              'userHomeLocation',
+              JSON.stringify(userHomeLocation)
+            );
 
-  //           localStorage.setItem(
-  //             'cachedRestaurantsWithInhouse',
-  //             JSON.stringify([])
-  //           );
-  //         }
-  //       );
-  //     } else {
-  //       this.setState(
-  //         {
-  //           saveUserHomeLocation: false,
-  //           showPopUp: false
-  //         },
-  //         () => {
-  //           localStorage.setItem(
-  //             'saveUserHomeLocation',
-  //             JSON.stringify(this.state.saveUserHomeLocation)
-  //           );
-  //           localStorage.setItem(
-  //             'cachedRestaurantsWithInhouse',
-  //             JSON.stringify([])
-  //           );
-  //           localStorage.setItem('selectedRestaurantCache', JSON.stringify([]));
-  //         }
-  //       );
-  //     }
-  //   } else {
-  //     this.setState({
-  //       showPopUp: false
-  //     });
-  //   }
-  // };
+            localStorage.setItem(
+              'cachedRestaurantsWithInhouse',
+              JSON.stringify([])
+            );
+          }
+        );
+      } else {
+        this.setState(
+          {
+            saveUserHomeLocation: false,
+            showPopUp: false,
+          },
+          () => {
+            localStorage.setItem(
+              'saveUserHomeLocation',
+              JSON.stringify(this.state.saveUserHomeLocation)
+            );
+            localStorage.setItem(
+              'cachedRestaurantsWithInhouse',
+              JSON.stringify([])
+            );
+            localStorage.setItem('selectedRestaurantCache', JSON.stringify([]));
+          }
+        );
+      }
+    } else {
+      this.setState({
+        showPopUp: false,
+      });
+    }
+  };
 
   //ADD REVIEW HERE
   addReview = (restaurant, review) => {

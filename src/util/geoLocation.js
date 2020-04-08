@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 const GeoLocation = (Reciever) => {
   class SetGeoLocation extends Component {
     state = {
-      lat: [],
-      lng: [],
+      lat: 51.593416217497875,
+      lng: -0.10362844184942505,
     };
 
     componentDidMount() {
@@ -26,9 +26,11 @@ const GeoLocation = (Reciever) => {
 
       getGeoLocationPromise()
         .then((position) => {
-          this.setState({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
+          this.setState(() => {
+            return {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
           });
         })
         .catch((err) => {

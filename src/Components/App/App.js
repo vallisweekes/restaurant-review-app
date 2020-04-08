@@ -5,10 +5,10 @@ import GeoLocation from '../../util/geoLocation';
 import Container from './AppContainer/index';
 
 const App = ({ lat, lng }) => {
-  window.onunload = () => {
-    // Clear the local storage
-    localStorage.clear();
-  };
+  // window.onunload = () => {
+  //   // Clear the local storage
+  //   localStorage.clear();
+  // };
   return (
     <Fragment>
       <Container lat={lat} lng={lng} />
