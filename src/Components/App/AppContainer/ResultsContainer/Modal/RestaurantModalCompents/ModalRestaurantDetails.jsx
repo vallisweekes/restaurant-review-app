@@ -18,10 +18,5 @@ const ModalRestaurantDetails = ({ address, phoneNumber, openingHours }) => {
   );
 };
 
-// ModalRestaurantDetails.propTypes = {
-//   addres: PropTypes.string.isRequired,
-//   phone: PropTypes.string.isRequired,
-//   website: PropTypes.string.isRequired
-// };
 
 export default ModalRestaurantDetails;

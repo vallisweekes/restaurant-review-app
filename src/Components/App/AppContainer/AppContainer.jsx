@@ -9,6 +9,9 @@ import Popup from './Popup/Popup';
 import _ from 'lodash';
 
 class AppContainer extends Component {
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log('Props and state inside appcontainer', props, state);
+  // }
   state = {
     googleResults: [],
     myRestaurants: [],
@@ -28,12 +31,15 @@ class AppContainer extends Component {
   };
 
   componentDidMount() {
-    // console.log('component did mount', this.props);
+    console.log('component did mount', this.props);
     this.setState({
       myRestaurants: [this.props.restaurantResults],
     });
   }
 
+  shouldComponentUpdate() {
+    return true;
+  }
   //FilterRating Handler
   handleRatings = (rating, e) => {
     const ratingValue = this.state.ratingValue;

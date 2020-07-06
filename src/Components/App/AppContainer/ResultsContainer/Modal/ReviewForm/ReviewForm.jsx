@@ -43,7 +43,7 @@ class ReviewForm extends Component {
               author_url: 'https//www.facebook.com',
               language: navigator.language,
               profile_photo_url: defaultProfilePic,
-              rating: rating,
+              rating,
               relative_time_description: (function setElapseTime() {
                 return moment()
                   .startOf('min')

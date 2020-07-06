@@ -1,5 +1,5 @@
-import React, { createContext } from "react";
-import RestList from "../../restList.json";
+import React, { createContext } from 'react';
+import RestList from '../../restList.json';
 
 export const MyContext = createContext(RestList);
 console.log(MyContext);

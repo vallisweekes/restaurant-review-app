@@ -368,8 +368,7 @@ class Container extends Component {
 
   //ADD REVIEW HERE
   addReview = (restaurant, review) => {
-    console.log('`inside add `review', restaurant);
-
+   
     restaurant.reviews.unshift(review);
     this.setState({
       selectedCacheRestaurant: [
